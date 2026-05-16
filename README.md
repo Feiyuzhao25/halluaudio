@@ -41,6 +41,19 @@ Dataset link:
 
 ---
 
+# Dataset Format
+
+Each subset in HalluAudio is organized into four fields:
+
+| Field | Description |
+|---|---|
+| `audio` | Audio sample stored in byte format |
+| `reference` | Ground-truth answer |
+| `pred` | Model prediction |
+| `subset` | Task category / evaluation subset |
+
+---
+
 # Benchmark Characteristics
 
 HalluAudio contains:
