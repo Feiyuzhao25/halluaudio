@@ -82,3 +82,18 @@ HalluAudio includes several hallucination-oriented metrics:
 ├── yesno_bias_figure.py
 ├── yesno_bias_test.py
 └── README.md
+```
+---
+
+# Citation
+
+If you find HalluAudio useful, please consider citing our work.
+
+```text
+@article{zhao2026halluaudio,
+  title={HalluAudio: A Comprehensive Benchmark for Hallucination Detection in Large Audio-Language Models},
+  author={Zhao, Feiyu and Chen, Yiming and Lu, Wenhuan and Zhang, Daipeng and Yue, Xianghu and Wei, Jianguo},
+  journal={arXiv preprint arXiv:2604.19300},
+  year={2026}
+}
+```
