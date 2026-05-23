@@ -1,4 +1,17 @@
-# HalluAudio
+<div align="center">
+  <h1>🔊 AudioHallu</h1>
+  <p>
+    Official inference code for<br>
+    <b><em>HalluAudio: A Comprehensive Benchmark for Hallucination Detection in Large Audio-Language Models</em></b>
+  </p>
+  <p>
+    <a href="https://huggingface.co/datasets/zhaozhao09/HalluAudio"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue' alt="HF-dataset"></a>
+    <a href="https://github.com/Feiyuzhao25/halluaudio"><img src="https://img.shields.io/badge/Report-Github-red" alt="Code"></a>
+    <a href="https://arxiv.org/abs/2604.19300"><img src="https://img.shields.io/badge/arXiv-2602.07803-b31b1b" alt="arXiv"></a>
+  </p>
+</div>
+
+# Overview
 
 HalluAudio is a large-scale benchmark for evaluating hallucination behaviors in Large Audio-Language Models (LALMs).  
 The benchmark covers three major audio domains:
