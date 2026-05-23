@@ -35,13 +35,7 @@ The benchmark contains **5,720 human-verified QA pairs** with adversarial, contr
 
 ## Dataset
 
-### 1. Dataset link
-
-👉 https://huggingface.co/datasets/zhaozhao09/HalluAudio
-
----
-
-### 2. Dataset Overview
+### 1. Dataset Overview
 
 | Domain | #QA Pairs |
 |---|---|
@@ -52,7 +46,7 @@ The benchmark contains **5,720 human-verified QA pairs** with adversarial, contr
 
 ---
 
-### 3. Dataset Format
+### 2. Dataset Format
 
 Each subset in HalluAudio is organized into four fields:
 
@@ -62,22 +56,6 @@ Each subset in HalluAudio is organized into four fields:
 | `reference` | Ground-truth answer |
 | `pred` | Model prediction |
 | `subset` | Task category / evaluation subset |
-
----
-
-## Benchmark Characteristics
-
-HalluAudio contains:
-
-- Contrastive constructions
-- Adversarial invalid queries
-- Binary QA
-- Open-ended QA
-- Counting tasks
-- Temporal reasoning tasks
-- Structural perturbation tasks
-
-The benchmark evaluates hallucination from multiple perspectives beyond standard accuracy.
 
 ---
 
@@ -101,15 +79,66 @@ HalluAudio includes several hallucination-oriented metrics:
 
 Download our dataset from [huggingface](https://huggingface.co/datasets/zhaozhao09/HalluAudio) and extract it to your data directory.
 
-### 2. Download Dataset
+### 2. Test LALMs
 
-Download our dataset from [huggingface](https://huggingface.co/datasets/zhaozhao09/HalluAudio) and extract it to your data directory.
+Run inference using your LALM.
+
+Example workflow:
+```bash
+for sample in dataset:
+
+    audio = sample["audio"]
+    prompt = sample["prompt"]
+
+    prediction = model.generate(audio, prompt)
+
+    save({
+        "audio": audio,
+        "prompt": prompt,
+        "reference": sample["reference"],
+        "pred": prediction,
+        "subset": sample["subset"]
+    })
+```
+
+The final prediction file should contain:
+
+```bash
+['audio', 'prompt', 'reference', 'pred', 'subset']
+```
 
 ### 3. Clone Repository
 
 ```bash
 git clone https://github.com/Feiyuzhao25/halluaudio.git
 cd halluaudio
+```
+
+### 4. Calculate Indicators
+
+Structured / classification-style Evaluation:
+
+```bash
+python accuracy_classify.py
+```
+
+Open-ended Evaluation:
+
+```bash
+python accuracy_else.py
+```
+
+Yes/No Bias Evaluation and Generate Visualization Figures:
+
+```bash
+python yesno_bias_test.py
+python yesno_bias_figure.py
+```
+
+False Refusal Evaluation and Generate Visualization Figures:
+
+```bash
+python reject_group.py
 ```
 ---
 
