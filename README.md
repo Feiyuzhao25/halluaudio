@@ -11,7 +11,7 @@
   </p>
 </div>
 
-# Overview
+## Overview
 
 HalluAudio is a large-scale benchmark for evaluating hallucination behaviors in Large Audio-Language Models (LALMs).  
 The benchmark covers three major audio domains:
@@ -33,17 +33,15 @@ The benchmark contains **5,720 human-verified QA pairs** with adversarial, contr
 
 ---
 
-# Dataset
+## Dataset
 
-## HuggingFace Dataset
-
-Dataset link:
+### 1. Dataset link
 
 👉 https://huggingface.co/datasets/zhaozhao09/HalluAudio
 
 ---
 
-## Dataset Overview
+### 2. Dataset Overview
 
 | Domain | #QA Pairs |
 |---|---|
@@ -54,7 +52,7 @@ Dataset link:
 
 ---
 
-## Dataset Format
+### 3. Dataset Format
 
 Each subset in HalluAudio is organized into four fields:
 
@@ -67,7 +65,7 @@ Each subset in HalluAudio is organized into four fields:
 
 ---
 
-# Benchmark Characteristics
+## Benchmark Characteristics
 
 HalluAudio contains:
 
@@ -83,7 +81,7 @@ The benchmark evaluates hallucination from multiple perspectives beyond standard
 
 ---
 
-# Evaluation Metrics
+## Evaluation Metrics
 
 HalluAudio includes several hallucination-oriented metrics:
 
@@ -97,17 +95,21 @@ HalluAudio includes several hallucination-oriented metrics:
 
 ---
 
-# Repository Structure
+## 🚀 Quick Start
 
-```text
-.
-├── accuracy_classify.py
-├── accuracy_else.py
-├── refuse_to_answer.py
-├── reject_group.py
-├── yesno_bias_figure.py
-├── yesno_bias_test.py
-└── README.md
+### 1. Download Dataset
+
+Download our dataset from [huggingface](https://huggingface.co/datasets/zhaozhao09/HalluAudio) and extract it to your data directory.
+
+### 2. Download Dataset
+
+Download our dataset from [huggingface](https://huggingface.co/datasets/zhaozhao09/HalluAudio) and extract it to your data directory.
+
+### 3. Clone Repository
+
+```bash
+git clone https://github.com/Feiyuzhao25/halluaudio.git
+cd halluaudio
 ```
 ---
 
