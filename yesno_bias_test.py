@@ -33,8 +33,8 @@ def extract_number(text):
 
 def evaluate_file(path):
     data = {
-        "tonic_count": [],
-        "stroke_count": []
+        "single_music_count": [],
+        "multiple_music_count": []
     }
 
     # 读取 jsonl
@@ -62,7 +62,8 @@ def evaluate_file(path):
             ref_num = extract_number(ref)
             pred_num = extract_number(pred)
 
-            if subset == "tonic_count":
+            pred_label = "Unrelated"
+            if subset == "single_music_count":
                 ref_label = "No"
                 if pred_num is None:
                     pred_label = "Unrelated"
