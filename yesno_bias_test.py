@@ -37,7 +37,6 @@ def evaluate_file(path):
         "stroke_count": []
     }
 
-    # 读取 jsonl
     with open(path, "r", encoding="utf8") as f:
         for line in f:
             row = json.loads(line)
