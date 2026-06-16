@@ -53,8 +53,8 @@ Each subset in HalluAudio is organized into four fields:
 | Field | Description |
 |---|---|
 | `audio` | Audio sample stored in byte format |
+| `prompt` | Prompt for every task |
 | `reference` | Ground-truth answer |
-| `pred` | Model prediction |
 | `subset` | Task category / evaluation subset |
 
 ---
