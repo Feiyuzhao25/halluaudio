@@ -36,7 +36,7 @@ for (csv_path, name), cmap in zip(file_paths, color_maps):
         annot=True,
         fmt=".1f",
         cmap=cmap,
-        annot_kws={"size": 20},  # 🔥 热力图数字
+        annot_kws={"size": 20},
         linewidths=0.5
     )
 
