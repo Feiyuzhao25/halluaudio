@@ -33,8 +33,8 @@ def extract_number(text):
 
 def evaluate_file(path):
     data = {
-        "tonic_count": [],
-        "stroke_count": []
+        "single_music_count": [],
+        "multiple_music_count": []
     }
 
     with open(path, "r", encoding="utf8") as f:
@@ -61,26 +61,22 @@ def evaluate_file(path):
             ref_num = extract_number(ref)
             pred_num = extract_number(pred)
 
-            if subset == "tonic_count":
-                ref_label = "No"
-                if pred_num is None:
-                    pred_label = "Unrelated"
-                else:
+            pred_label = "Unrelated"
+            if subset == "single_music_count":
+                if pred_num is not None:
                     pred_label = "No" if pred_num == 1 else "Yes"
 
-                if pred_label == "No" and ref_label == "No" and pred_num == 1:
-                    correct += 1
-
             elif subset == "multiple_music_count":
-                ref_label = "Yes"
-
-                if pred_num is None:
-                    pred_label = "Unrelated"
-                else:
+                if pred_num is not None:
                     pred_label = "Yes" if pred_num > 1 else "No"
 
-                if pred_num == ref_num and ref_num > 1:
-                    correct += 1
+            # Accuracy is exact count match. NOTE: single_music_count gold answers
+            # are not always 1 (they are 1 and 2 in the data), so scoring "single
+            # => predicted count == 1" marks valid gold answers wrong. Compare the
+            # predicted count to the reference count directly. The single/multiple
+            # Yes/No/Unrelated labels above still drive the bias ratios below.
+            if pred_num is not None and ref_num is not None and pred_num == ref_num:
+                correct += 1
 
             if pred_label == "Unrelated":
                 unrelated += 1
